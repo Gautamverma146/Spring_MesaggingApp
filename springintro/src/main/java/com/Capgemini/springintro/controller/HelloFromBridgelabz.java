@@ -25,5 +25,10 @@ public class HelloFromBridgelabz {
     public ResponseEntity<DtoPost> dtoPostResponseEntity(@RequestBody DtoPost dtoPost){
         return new ResponseEntity<>(new DtoPost(dtoPost.getFirstName(),dtoPost.getLastName()), HttpStatus.CREATED);
     }
-    
+    @PutMapping("/put/{firstName}")
+    public String sayHello(
+            @PathVariable String firstName,
+            @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz!";
+    }
 }
